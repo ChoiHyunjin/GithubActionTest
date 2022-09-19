@@ -33,9 +33,6 @@ jobs:
       - name: Find type errors
         run: yarn type-check |& tee "ts-compile-output.log"
 
-      - name: Run danger
-        run: yarn danger ci --verbose
-
   typeCheck:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -44,9 +41,6 @@ jobs:
     steps:
       - name: Find type errors
         run: yarn type-check |& tee "ts-compile-output.log"
-
-      - name: Run danger
-        run: yarn danger ci --verbose
 
   lintCheck:
     # The type of runner that the job will run on
@@ -57,9 +51,6 @@ jobs:
       - name: Lint ts and js cods
         run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
 
-      - name: Run danger
-        run: yarn danger ci --verbose
-
   importCheck:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -68,9 +59,6 @@ jobs:
     steps:
       - name: Detect cyclic imports
         run: yarn import-check |& tee "cyclic-import-output.log"
-
-      - name: Run danger
-        run: yarn danger ci --verbose
 
   runDanger:
     # The type of runner that the job will run on
