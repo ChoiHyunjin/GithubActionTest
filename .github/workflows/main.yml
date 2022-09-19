@@ -8,6 +8,8 @@ on:
     push:
     pull_request:
       branches: [ "develop" ]
+    pull_request_target:
+
 
 # Allows you to run this workflow manually from the Actions tab
 #  workflow_dispatch:
@@ -27,6 +29,26 @@ jobs:
           echo condition: '${{ github.head_ref }}' != ''
           echo "condition2: '${{ github.head_ref }}' != ''"
       # This workflow contains a single job called "build"
+
+  install_node_packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore Yarn Package Cache
+        uses: actions/cache@v3
+        with:
+          key: yarn-v15-{{ arch }}-{{ checksum "yarn.lock" }}
+
+      - name: Install node dependencies
+        run: yarn install --immutable
+
+      - name: Save Yarn Package Cache
+        uses: actions/cache@v3
+        with:
+          key: yarn-v15-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          path: |
+            - .yarn/cache
+            - .yarn/unplugged
+
   build:
     #    concurrency:
     #      group: ${{ github.workflow }}-${{ github.ref }}
