@@ -3,12 +3,11 @@
 name: CI
 
 # Controls when the workflow will run
-on: [ pull_request, push ]
+on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  #  push:
-  #    branches: [ "*" ]
-  #  pull_request:
-  #    branches: [ "*" ]
+    push:
+    pull_request:
+      branches: [ "develop" ]
 
 # Allows you to run this workflow manually from the Actions tab
 #  workflow_dispatch:
@@ -25,6 +24,8 @@ jobs:
           echo "refName: ${{ github.ref_name }}"
           echo "head_ref: ${{ github.head_ref }}"
           echo "event: ${{ github.event_name }}"
+          echo condition: '${{ github.head_ref }}' != ''
+          echo "condition2: '${{ github.head_ref }}' != ''"
       # This workflow contains a single job called "build"
   build:
     #    concurrency:
@@ -34,8 +35,8 @@ jobs:
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: ${{github.head_ref}} != ""
-    
+    if: ${{ github.head_ref != '' }}
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
