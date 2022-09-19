@@ -15,7 +15,17 @@ on: [ pull_request, push ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  preset:
+    runs-on: ubuntu-latest
+    steps:
+      - name: event info
+        run: |
+          echo "github: ${{ github }}"
+          echo "ref: ${{ github.ref }}"
+          echo "refName: ${{ github.ref_name }}"
+          echo "head_ref: ${{ github.head_ref }}"
+          echo "event: ${{ github.event_name }}"
+      # This workflow contains a single job called "build"
   build:
     #    concurrency:
     #      group: ${{ github.workflow }}-${{ github.ref }}
