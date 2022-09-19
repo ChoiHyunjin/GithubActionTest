@@ -39,18 +39,22 @@ jobs:
           path: |
             - .yarn/cache
             - .yarn/unplugged
-          key: yarn-v15-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: yarn-v15-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install node dependencies
         run: yarn install --immutable
 
-#      - name: Save Yarn Package Cache
+#  install_ruby_packages:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Restore Yarn Package Cache
 #        uses: actions/cache@v3
 #        with:
-#          key: yarn-v15-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-#          path: |
-#            - .yarn/cache
-#            - .yarn/unplugged
+#          path: vendor/bundle
+#          key: gem-v12-${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
+#
+#      - name: Install ruby gems
+#        run: bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle --clean
 
   build:
     #    concurrency:
