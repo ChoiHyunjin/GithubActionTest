@@ -56,6 +56,12 @@ jobs:
 #          restore-keys: yarn-v15-${{ runner.os }}-
 
       - run: yarn install --frozen-lockfile --immutable
+      - name: Find type errors
+        run: |
+          cat tsconfig.json
+          yarn type-check |& tee "ts-compile-output.log"
+      - name: Lint ts and js cods
+        run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
 
 #      - name: Install node dependencies
 #        run: yarn install --immutable
@@ -84,8 +90,8 @@ jobs:
 
       - name: Find type errors
         run: |
+          cat tsconfig.json
           yarn type-check |& tee "ts-compile-output.log"
-          ls -al
 
   check_lint:
     # The type of runner that the job will run on
