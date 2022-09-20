@@ -35,6 +35,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Make cache folder
+        run: |
+          - mkdir -p .yarn/cache
+          - mkdir -p .yarn/unplugged
+
       - name: Restore Yarn Package Cache
         uses: actions/cache@v3
         with:
