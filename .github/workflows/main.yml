@@ -68,6 +68,8 @@ jobs:
         run: yarn import-check |& tee "cyclic-import-output.log"
 
       - name: Run danger
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn danger ci --verbose
 
   #      - name: Install node dependencies
@@ -120,13 +122,11 @@ jobs:
   #      - name: Detect cyclic imports
   #        run: yarn import-check |& tee "cyclic-import-output.log"
 
-  run_danger:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    #    needs: [ check_tests ]
-    steps:
-      - name: Run danger
-        run: |
-          ls -al
-#          yarn danger ci --verbose
+#  run_danger:
+#    # The type of runner that the job will run on
+#    runs-on: ubuntu-latest
+#    #    needs: [ check_tests ]
+#    steps:
+#      - name: Run danger
+#        run: yarn danger ci --verbose
 
