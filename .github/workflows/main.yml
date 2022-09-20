@@ -89,9 +89,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Find type errors
-        run: |
-          cat tsconfig.json
-          yarn type-check |& tee "ts-compile-output.log"
+        run: yarn type-check |& tee "ts-compile-output.log"
 
   check_lint:
     # The type of runner that the job will run on
