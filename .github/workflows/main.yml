@@ -68,7 +68,7 @@ jobs:
         run: yarn import-check |& tee "cyclic-import-output.log"
 
       - name: Run danger
-      - env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn danger ci --verbose
 
