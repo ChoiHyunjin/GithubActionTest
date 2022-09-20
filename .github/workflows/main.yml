@@ -55,7 +55,7 @@ jobs:
 #          key: yarn-v15-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 #          restore-keys: yarn-v15-${{ runner.os }}-
 
-      - run: yarn install --frozen-lockfile --immutable
+      - run: yarn install --immutable
 #      - name: Find type errors
 #        run: |
 #          cat tsconfig.json
