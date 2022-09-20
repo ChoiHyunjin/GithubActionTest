@@ -39,8 +39,8 @@ jobs:
         run: |
           mkdir -p .yarn/cache
           mkdir -p .yarn/unplugged
-          cd ls
-          cd ls -al
+          ls
+          ls -al
 
       - name: Restore Yarn Package Cache
         uses: actions/cache@v3
@@ -77,8 +77,8 @@ jobs:
       - name: Find type errors
         run: |
           yarn type-check |& tee "ts-compile-output.log"
-          cd ls
-          cd ls -al
+          ls
+          ls -al
 
   check_lint:
     # The type of runner that the job will run on
