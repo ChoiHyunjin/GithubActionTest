@@ -39,7 +39,7 @@ jobs:
           path: |
             - .yarn/cache
             - .yarn/unplugged
-          key: yarn-v15-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: yarn-v15-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install node dependencies
         run: yarn install --immutable
