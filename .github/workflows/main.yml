@@ -42,6 +42,7 @@ jobs:
             - .yarn/cache
             - .yarn/unplugged
           key: yarn-v15-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: yarn-v15-${{ runner.os }}-
 
       - name: Install node dependencies
         run: yarn install --immutable
