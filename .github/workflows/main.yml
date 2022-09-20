@@ -80,14 +80,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Restore Yarn Package
-        uses: actions/cache@v3
-        with:
-          path: |
-            .yarn/cache
-            .yarn/unplugged
-          restore-keys: yarn-v16-${{ runner.os }}-
-
       - name: Find type errors
         run: |
           yarn type-check |& tee "ts-compile-output.log"
