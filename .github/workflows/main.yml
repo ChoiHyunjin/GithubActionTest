@@ -67,6 +67,9 @@ jobs:
       - name: Detect cyclic imports
         run: yarn import-check |& tee "cyclic-import-output.log"
 
+      - name: Run danger
+        run: yarn danger ci --verbose
+
   #      - name: Install node dependencies
   #        run: yarn install --immutable
 
