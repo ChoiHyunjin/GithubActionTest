@@ -92,6 +92,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v3
       - name: Lint ts and js cods
         run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
 
@@ -102,6 +103,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v3
       - name: Detect cyclic imports
         run: yarn import-check |& tee "cyclic-import-output.log"
 
