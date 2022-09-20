@@ -77,7 +77,7 @@ jobs:
       - name: Find type errors
         run: |
           yarn type-check |& tee "ts-compile-output.log"
-          ls
+          cd ..
           ls -al
 
   check_lint:
