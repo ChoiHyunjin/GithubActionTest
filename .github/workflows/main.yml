@@ -41,19 +41,19 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: yarn.lock
 
-  #      - name: Make cache folder
-#        run: |
-#          mkdir -p .yarn/cache
-#          mkdir -p .yarn/unplugged
-#
-#      - name: Cache Yarn Package
-#        uses: actions/cache@v3
-#        with:
-#          path: |
-#            .yarn/cache
-#            .yarn/unplugged
-#          key: yarn-v15-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: yarn-v15-${{ runner.os }}-
+      #      - name: Make cache folder
+      #        run: |
+      #          mkdir -p .yarn/cache
+      #          mkdir -p .yarn/unplugged
+      #
+      #      - name: Cache Yarn Package
+      #        uses: actions/cache@v3
+      #        with:
+      #          path: |
+      #            .yarn/cache
+      #            .yarn/unplugged
+      #          key: yarn-v15-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      #          restore-keys: yarn-v15-${{ runner.os }}-
 
       - name: Node setup
         run: yarn install --immutable
@@ -67,8 +67,8 @@ jobs:
       - name: Detect cyclic imports
         run: yarn import-check |& tee "cyclic-import-output.log"
 
-#      - name: Install node dependencies
-#        run: yarn install --immutable
+  #      - name: Install node dependencies
+  #        run: yarn install --immutable
 
   #  install_ruby_packages:
   #    runs-on: ubuntu-latest
@@ -82,48 +82,48 @@ jobs:
   #      - name: Install ruby gems
   #        run: bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle --clean
 
-#  check_type:
-#    # The type of runner that the job will run on
-#    runs-on: ubuntu-latest
-#    needs: [ install_node_packages ]
-#    if: ${{github.head_ref}} != ""
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Find type errors
-#        run: yarn type-check |& tee "ts-compile-output.log"
-#
-#  check_lint:
-#    # The type of runner that the job will run on
-#    runs-on: ubuntu-latest
-#    needs: [ install_node_packages ]
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Lint ts and js cods
-#        run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
-#
-#  check_import:
-#    # The type of runner that the job will run on
-#    runs-on: ubuntu-latest
-#    needs: [ install_node_packages ]
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Detect cyclic imports
-#        run: yarn import-check |& tee "cyclic-import-output.log"
+  #  check_type:
+  #    # The type of runner that the job will run on
+  #    runs-on: ubuntu-latest
+  #    needs: [ install_node_packages ]
+  #    if: ${{github.head_ref}} != ""
+  #
+  #    # Steps represent a sequence of tasks that will be executed as part of the job
+  #    steps:
+  #      - uses: actions/checkout@v3
+  #
+  #      - name: Find type errors
+  #        run: yarn type-check |& tee "ts-compile-output.log"
+  #
+  #  check_lint:
+  #    # The type of runner that the job will run on
+  #    runs-on: ubuntu-latest
+  #    needs: [ install_node_packages ]
+  #
+  #    # Steps represent a sequence of tasks that will be executed as part of the job
+  #    steps:
+  #      - uses: actions/checkout@v3
+  #      - name: Lint ts and js cods
+  #        run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
+  #
+  #  check_import:
+  #    # The type of runner that the job will run on
+  #    runs-on: ubuntu-latest
+  #    needs: [ install_node_packages ]
+  #
+  #    # Steps represent a sequence of tasks that will be executed as part of the job
+  #    steps:
+  #      - uses: actions/checkout@v3
+  #      - name: Detect cyclic imports
+  #        run: yarn import-check |& tee "cyclic-import-output.log"
 
   run_danger:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-#    needs: [ check_tests ]
+    #    needs: [ check_tests ]
     steps:
       - name: Run danger
-        run: | 
-#          yarn danger ci --verbose
+        run: |
           ls -al
+#          yarn danger ci --verbose
 
