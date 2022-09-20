@@ -60,8 +60,8 @@ jobs:
 #        run: |
 #          cat tsconfig.json
 #          yarn type-check |& tee "ts-compile-output.log"
-#      - name: Lint ts and js cods
-#        run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
+      - name: Lint ts and js cods
+        run: yarn lint-check -f ./scripts/eslint-formatter.js |& tee "eslint-output.log"
 
 #      - name: Install node dependencies
 #        run: yarn install --immutable
