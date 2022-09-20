@@ -28,7 +28,6 @@ jobs:
           echo "event: ${{ github.event_name }}"
           echo condition: '${{ github.head_ref }}' != ''
           echo "condition2: '${{ github.head_ref }}' != ''"
-          cat src/index.js
       # This workflow contains a single job called "build"
 
   check_tests:
@@ -58,6 +57,8 @@ jobs:
 
       - name: Node setup
         run: yarn install --immutable
+
+      - run: cat src/index.js
 
       - name: Find type errors
         run: yarn type-check |& tee "ts-compile-output.log"
