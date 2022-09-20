@@ -55,6 +55,9 @@ jobs:
 #          key: yarn-v15-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 #          restore-keys: yarn-v15-${{ runner.os }}-
 
+      - run: npm ci
+      - run: npm test
+
 #      - name: Install node dependencies
 #        run: yarn install --immutable
 
