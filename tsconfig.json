@@ -2,19 +2,11 @@
 // prettier-ignore
 {
   "compilerOptions": {
-    "types": ["react-native", "jest", "node"],
-    "lib": [
-      "es2019",
-      "dom"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@app/*": [
-        "./src/*"
-      ]
-    },
-    /* Completeness */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "target": "ES5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "__tests__/**/*-test.ts", "__mocks__/**/*"]
