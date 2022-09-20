@@ -23,7 +23,7 @@ const modifiedFiles = danger.git.modified_files;
 
 // Links related JIRA issue
 jiraIssue({
-  key: 'RS',
+  key: 'WUX',
   url: 'https://radish.atlassian.net/browse',
   emoji: ':paperclip:',
   location: 'branch', // Optional location, either 'title' or 'branch'
