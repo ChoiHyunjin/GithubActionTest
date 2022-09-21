@@ -4,10 +4,6 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-#  push:
-#  pull_request:
-#    branches: [ "develop" ]
   pull_request:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -24,8 +20,6 @@ jobs:
 
       - name: Node setup
         run: yarn install --immutable
-
-      - run: cat src/index.js
 
       - name: Find type errors
         run: yarn type-check |& tee "ts-compile-output.log"
