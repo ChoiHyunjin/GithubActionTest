@@ -10,10 +10,6 @@ on:
 #    branches: [ "develop" ]
   pull_request:
 
-
-# Allows you to run this workflow manually from the Actions tab
-#  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   preset:
@@ -32,9 +28,11 @@ jobs:
 
   check_tests:
     runs-on: ubuntu-latest
+
     concurrency:
       group: ${{ github.head_ref }}
       cancel-in-progress: true
+
     steps:
       - uses: actions/checkout@v3
 
