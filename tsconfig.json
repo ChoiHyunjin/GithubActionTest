@@ -6,8 +6,9 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "noEmit": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "__tests__/**/*-test.ts", "__mocks__/**/*", "dangerfile.ts"]
+  "exclude": ["node_modules", "__tests__/**/*-test.ts", "__mocks__/**/*", "dangerœfile.ts"]
 }
