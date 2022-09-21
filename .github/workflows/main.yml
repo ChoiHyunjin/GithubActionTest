@@ -12,20 +12,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  preset:
-    runs-on: ubuntu-latest
-    steps:
-      - name: event info
-        run: |
-          echo "github: ${{ github }}"
-          echo "ref: ${{ github.ref }}"
-          echo "refName: ${{ github.ref_name }}"
-          echo "head_ref: ${{ github.head_ref }}"
-          echo "event: ${{ github.event_name }}"
-          echo condition: '${{ github.head_ref }}' != ''
-          echo "condition2: '${{ github.head_ref }}' != ''"
-      # This workflow contains a single job called "build"
-
   check_tests:
     runs-on: ubuntu-latest
 
@@ -35,12 +21,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-          cache-dependency-path: yarn.lock
 
       - name: Node setup
         run: yarn install --immutable
