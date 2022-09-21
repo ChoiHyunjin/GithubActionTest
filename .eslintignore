@@ -1,0 +1,8 @@
+ios/
+android/
+node_modules/
+__tests__/
+__mocks__/
+jest/
+storybook/storyLoader.ts
+dist/
