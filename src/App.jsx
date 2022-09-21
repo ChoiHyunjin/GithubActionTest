@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import TestForAction from "./testForAction.tsx";
-import {CONSTANTS} from "./index.js";
+import React from "react";
 
 function App() {
     return (
