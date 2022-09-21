@@ -1,5 +1,8 @@
 module.exports = {
-    extends: ["eslint:recommended", "plugin:react/recommended"],
+    extends: [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint'],
     rules: {
