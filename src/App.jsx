@@ -4,8 +4,6 @@ import TestForAction from "./testForAction.tsx";
 import {CONSTANTS} from "./index.js";
 
 function App() {
-    const obj = new TestForAction()
-    const constants = CONSTANTS
     return (
         <div className="App">
             <header className="App-header">
